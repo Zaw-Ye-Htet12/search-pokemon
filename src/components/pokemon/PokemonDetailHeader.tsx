@@ -74,16 +74,22 @@ export default function PokemonDetailHeader({ pokemon }: PokemonDetailHeaderProp
                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                   {/* Pokemon Image */}
                   <div className="flex justify-center lg:justify-start">
-                     <div className="relative w-64 h-64">
+                     <div className="relative w-64 h-64 flex items-center justify-center rounded-full overflow-hidden bg-muted/20">
+                        {/* Subtle glowing background */}
                         <div className="absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 rounded-full blur-lg" />
-                        <Image
-                           src={pokemon.image}
-                           alt={pokemon.name}
-                           width={256}
-                           height={256}
-                           className="relative z-10 object-contain drop-shadow-2xl"
-                           priority
-                        />
+
+                        {/* Fixed-size image container */}
+                        <div className="relative w-56 h-56 rounded-full">
+                           <Image
+                              src={pokemon.image}
+                              alt={pokemon.name}
+                              fill
+                              sizes="224px"
+                              className="object-center z-10 drop-shadow-2xl rounded-full"
+                              priority
+                              quality={90}
+                           />
+                        </div>
                      </div>
                   </div>
 

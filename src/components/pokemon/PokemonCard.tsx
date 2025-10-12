@@ -69,15 +69,17 @@ export default function PokemonCard({ pokemon, className }: PokemonCardProps) {
 
             <CardContent className="flex flex-col items-center space-y-4 px-4 pb-3">
                {/* Pokemon Image */}
-               <div className="relative w-28 h-28">
-                  <div className="absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/10 rounded-full blur-sm" />
+               <div className="relative w-32 h-32 rounded-full overflow-hidden flex items-center justify-center bg-gradient-to-br from-muted/30 to-muted/10">
                   <Image
                      src={pokemon.image}
                      alt={pokemon.name}
                      fill
-                     sizes="32px"
-                     className="object-contain object-center"
-                     priority={false}
+                     sizes="128px"
+                     className="object-center scale-90 transition-transform duration-300 group-hover:scale-105 rounded-full"
+                     priority
+                     quality={90}
+                     placeholder="blur"
+                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                   />
                </div>
 
