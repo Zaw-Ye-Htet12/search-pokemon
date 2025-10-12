@@ -5,6 +5,7 @@ import { ApolloWrapper as ApolloProvider } from '../providers/ApolloProvider';
 import { ThemeProvider } from '../providers/ThemeProvider';
 import Navbar from '@/components/common/Navbar';
 import { Toaster } from '@/components/ui/sonner';
+import { Suspense } from 'react';
 
 const geistSans = Geist({
    variable: '--font-geist-sans',
@@ -31,9 +32,11 @@ export default function RootLayout({
          <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                <ApolloProvider>
-                  <Navbar />
-                  <main className="max-w-6xl mx-auto px-4 w-full">{children}</main>
-                  <Toaster position="top-right" richColors />
+                  <Suspense>
+                     <Navbar />
+                     <main className="max-w-6xl mx-auto px-4 w-full">{children}</main>
+                     <Toaster position="top-right" richColors />
+                  </Suspense>
                </ApolloProvider>
             </ThemeProvider>
          </body>
