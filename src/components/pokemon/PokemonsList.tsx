@@ -19,7 +19,7 @@ export default function PokemonsList({ first = 12, className }: PokemonsListProp
 
    const pokemons = data?.pokemons ?? [];
 
-   if (pokemons.length === 0) {
+   if ((pokemons?.length ?? 0) === 0) {
       return (
          <EmptyState
             icon={<Search className="w-16 h-16 text-muted-foreground" />}
@@ -31,7 +31,6 @@ export default function PokemonsList({ first = 12, className }: PokemonsListProp
 
    return (
       <div className={className}>
-
          {/* Pokemon Grid */}
          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-fr">
             {pokemons.map((pokemon) => (

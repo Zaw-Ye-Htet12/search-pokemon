@@ -141,7 +141,10 @@ export default function SearchInput({ onClose, className }: SearchInputProps) {
                            'w-full flex items-center gap-3 p-3 rounded-lg text-sm transition-all hover:bg-accent',
                            selectedIndex === index && 'bg-accent'
                         )}
-                        onClick={() => handleSearch(undefined, pokemon.name)}
+                        onClick={() => {
+                           router.push(`${Routes.POKEMON_DETAILS}/${pokemon.id}`);
+                           setIsSuggestionsOpen(false);
+                        }}
                         onMouseEnter={() => setSelectedIndex(index)}
                      >
                         <div className="flex-shrink-0 w-8 h-8 relative">

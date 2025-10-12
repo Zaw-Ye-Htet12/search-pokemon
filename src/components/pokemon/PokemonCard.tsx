@@ -12,9 +12,10 @@ import { cn } from '@/lib/utils';
 
 interface PokemonCardProps {
    pokemon: Pokemon;
+   className?: string;
 }
 
-export default function PokemonCard({ pokemon }: PokemonCardProps) {
+export default function PokemonCard({ pokemon, className }: PokemonCardProps) {
    const { isFavorite, addFavorite, removeFavorite } = useFavoritesStore();
 
    const handleFavoriteToggle = (e: React.MouseEvent) => {
@@ -31,8 +32,13 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
    const isPokemonFavorite = isFavorite(pokemon.id);
 
    return (
-      <Link href={`${Routes.POKEMON_DETAILS}/${pokemon.name.toLowerCase()}`}>
-         <Card className="group cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 border-0 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm relative overflow-hidden">
+      <Link href={`${Routes.POKEMON_DETAILS}/${pokemon.id}`}>
+         <Card
+            className={cn(
+               'group cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 border-0 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm relative overflow-hidden',
+               className
+            )}
+         >
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-4 px-4">
                <div className="flex items-center gap-2">
                   <span className="text-xs font-mono font-medium text-muted-foreground bg-muted/50 px-2 py-1 rounded-full">

@@ -13,9 +13,9 @@ export const GET_POKEMONS = gql`
       }
    }
 `;
-export const GET_POKEMON_BY_NAME = gql`
-   query GetPokemonByName($name: String!) {
-      pokemon(name: $name) {
+export const GET_POKEMON_BY_ID = gql`
+   query GetPokemonById($id: String!) {
+      pokemon(id: $id) {
          id
          number
          name
@@ -62,21 +62,9 @@ export const GET_POKEMON_BY_NAME = gql`
    }
 `;
 
-export const SEARCH_POKEMON = gql`
-   query SearchPokemon($name: String!) {
-      pokemon(name: $name) {
-         id
-         number
-         name
-         types
-         image
-      }
-   }
-`;
-
 export const GET_POKEMONS_BY_IDS = gql`
-   query GetPokemonsByIds($id: String, $name: String) {
-      pokemons(id: $id, name: $name) {
+   query GetPokemonsByIds($id: String) {
+      pokemons(id: $id) {
          id
          name
          types
