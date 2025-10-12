@@ -1,4 +1,3 @@
-// hooks/use-pagination.ts
 import { useSearchParams } from 'next/navigation';
 
 interface UsePaginationProps {

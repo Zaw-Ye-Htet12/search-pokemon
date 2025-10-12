@@ -1,4 +1,3 @@
-// src/components/common/PokemonGridSkeleton.tsx
 import { PokemonCardSkeleton } from './PokemonCardSkeleton';
 
 interface PokemonGridSkeletonProps {

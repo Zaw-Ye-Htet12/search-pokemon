@@ -1,4 +1,3 @@
-// src/components/pokemon/PokemonEvolutions.tsx
 'use client';
 
 import { Pokemon } from '@/interfaces/pokemon';

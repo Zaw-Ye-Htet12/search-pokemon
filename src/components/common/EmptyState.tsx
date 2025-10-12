@@ -1,4 +1,3 @@
-// src/components/common/EmptyState.tsx
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Home, Search } from 'lucide-react';
@@ -27,16 +26,13 @@ export function EmptyState({
 }: EmptyStateProps) {
    return (
       <div className={cn('flex flex-col items-center justify-center py-16 px-4 text-center', className)}>
-         {/* Icon */}
          <div className="mb-6 text-muted-foreground">{icon}</div>
 
-         {/* Text Content */}
          <div className="space-y-3 max-w-sm">
             <h3 className="text-xl font-semibold text-foreground">{title}</h3>
             <p className="text-muted-foreground leading-relaxed">{description}</p>
          </div>
 
-         {/* Actions */}
          <div className="flex flex-col sm:flex-row gap-3 mt-8">
             {action && (
                <Button onClick={action.onClick} className="gap-2">

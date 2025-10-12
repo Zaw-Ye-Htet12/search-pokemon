@@ -1,4 +1,3 @@
-// src/components/pokemon/PokemonAttacks.tsx
 'use client';
 
 import { Pokemon } from '@/interfaces/pokemon';

@@ -1,4 +1,3 @@
-'use client';
 import React, { Suspense } from 'react';
 import FavoritePokemonsList from '@/components/pokemon/FavoritePokemonsList';
 import { PokemonGridSkeleton } from '@/components/skeletons/PokemonCardGridSkeleton';
@@ -11,7 +10,7 @@ export default function FavoritesPage() {
             <p className="text-muted-foreground">Your saved Pokémon</p>
          </div>
 
-         <Suspense fallback={<PokemonGridSkeleton count={8} />}>
+         <Suspense fallback={<PokemonGridSkeleton />}>
             <FavoritePokemonsList />
          </Suspense>
       </div>

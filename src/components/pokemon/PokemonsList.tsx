@@ -1,4 +1,3 @@
-// src/components/pokemon/PokemonsList.tsx
 'use client';
 
 import { usePokemons } from '@/hooks/usePokemons';

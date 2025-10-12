@@ -1,4 +1,3 @@
-// src/components/pokemon/PokemonDetail.tsx
 'use client';
 
 import { Card, CardContent } from '@/components/ui/card';

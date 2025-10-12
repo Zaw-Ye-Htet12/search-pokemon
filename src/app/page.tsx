@@ -10,7 +10,7 @@ export default function HomePage() {
             <p className="text-muted-foreground">Discover and explore all your favorite Pokémon</p>
          </div>
 
-         <Suspense fallback={<PokemonGridSkeleton count={20} />}>
+         <Suspense fallback={<PokemonGridSkeleton />}>
             <PokemonsList />
          </Suspense>
       </div>

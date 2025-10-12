@@ -11,7 +11,7 @@ export default function SearchPage({ searchParams }: { searchParams: { search: s
             <p className="text-muted-foreground">Pokémons matching your search query</p>
          </div>
          <div className="mb-4">
-            <Suspense fallback={<PokemonGridSkeleton count={20} />}>
+            <Suspense fallback={<PokemonGridSkeleton />}>
                <SearchResultPokemons search={searchTerm} />
             </Suspense>
          </div>

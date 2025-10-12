@@ -1,4 +1,3 @@
-// src/hooks/useGetPokemonDetail.ts
 'use client';
 
 import { GET_POKEMON_BY_ID } from '@/graphql/queries';
