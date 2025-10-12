@@ -35,7 +35,7 @@ export default function PokemonCard({ pokemon, className }: PokemonCardProps) {
       <Link href={`${Routes.POKEMON_DETAILS}/${pokemon.id}`}>
          <Card
             className={cn(
-               'group cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 border-0 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm relative overflow-hidden',
+               'group cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 border-0 bg-gradient-to-br from-card to-card/80 backdrop-blur-sm relative overflow-hidden',
                className
             )}
          >
