@@ -7,18 +7,18 @@ import { toast } from 'sonner';
 import { Pokemon, PokemonsResponse } from '@/interfaces/pokemon';
 
 interface UsePokemonsOptions {
-   first?: number;
    skip?: boolean;
 }
 
-export function usePokemons({ first = 12, skip = false }: UsePokemonsOptions = {}) {
+export function usePokemons({ skip = false }: UsePokemonsOptions) {
    const { data, loading, error, refetch } = useQuery<PokemonsResponse<Pokemon>>(GET_POKEMONS, {
-      variables: { first },
+      variables: {
+         first: -1,
+      },
       skip,
       errorPolicy: 'all',
    });
 
-   // show toast when Apollo error changes (useEffect avoids setting local state inside onError)
    useEffect(() => {
       if (error) {
          toast('Failed to load pokémons. Please try again.', { description: error.message });

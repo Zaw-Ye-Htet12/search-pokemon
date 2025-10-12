@@ -7,18 +7,22 @@ import { Search } from 'lucide-react';
 import { PokemonGridSkeleton } from '../skeletons/PokemonCardGridSkeleton';
 import EmptyState from '../common/EmptyState';
 import { usePokemonsByIds } from '@/hooks/usePokemonsByIds';
+import { usePagination } from '@/hooks/usePagination';
+import Pagination from '../common/Pagination';
 
 const SearchResultPokemons = ({ search }: { search: string }) => {
-   const { data } = usePokemons({ first: -1 });
+   const { limit, offset, page } = usePagination();
+   const { data } = usePokemons({ skip: false });
 
    const filteredPokemons = data?.pokemons.filter((pokemon) =>
       pokemon.name.toLowerCase().includes(search.toLowerCase())
    );
 
    const { loading, pokemons } = usePokemonsByIds(filteredPokemons?.map((p) => p.id) || []);
+   const paginatedPokemons = pokemons.slice(offset, offset + limit);
 
    if (loading) {
-      return <PokemonGridSkeleton count={12} />;
+      return <PokemonGridSkeleton />;
    }
 
    return (
@@ -26,7 +30,7 @@ const SearchResultPokemons = ({ search }: { search: string }) => {
          {search ? (
             pokemons && pokemons.length > 0 ? (
                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                  {pokemons.map((pokemon) => (
+                  {paginatedPokemons.map((pokemon) => (
                      <PokemonCard key={pokemon.id} pokemon={pokemon} />
                   ))}
                </div>
@@ -47,12 +51,15 @@ const SearchResultPokemons = ({ search }: { search: string }) => {
 
          {/* Load More Section (for future pagination) */}
          {pokemons && pokemons.length > 0 && (
-            <div className="text-center mt-12">
-               <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  Showing all {pokemons.length} results
+            <>
+               <div className="text-center mt-12">
+                  <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                     Showing all {pokemons.length} results
+                  </div>
                </div>
-            </div>
+               <Pagination currentPage={page} itemsPerPage={limit} totalItems={pokemons.length} />
+            </>
          )}
       </div>
    );

@@ -6,11 +6,6 @@ import { toast } from 'sonner';
 import { GET_POKEMON_BY_ID } from '@/graphql/queries';
 import type { Pokemon } from '@/interfaces/pokemon';
 
-/**
- * Hook: fetch pokemons by a list of ids.
- * - Performs parallel queries using GET_POKEMONS_BY_IDS (server expects single id or name per request).
- * - Returns ordered results matching the input ids array.
- */
 export function usePokemonsByIds(ids: string[]) {
    const client = useApolloClient();
    const [pokemons, setPokemons] = useState<Pokemon[]>([]);

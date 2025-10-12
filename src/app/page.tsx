@@ -11,7 +11,7 @@ export default function HomePage() {
          </div>
 
          <Suspense fallback={<PokemonGridSkeleton count={20} />}>
-            <PokemonsList first={20} />
+            <PokemonsList />
          </Suspense>
       </div>
    );

@@ -24,7 +24,7 @@ export default function SearchInput({ onClose, className }: SearchInputProps) {
    const suggestionsRef = useRef<HTMLDivElement>(null);
 
    // Prefetch all pokemons for search suggestions
-   const { data } = usePokemons({ first: -1 }); // First generation pokemons
+   const { data } = usePokemons({ skip: false }); // First generation pokemons
 
    const suggestions =
       data?.pokemons?.filter((pokemon) => pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())).slice(0, 5) ||
