@@ -6,7 +6,7 @@ import PokemonCard from '@/components/pokemon/PokemonCard';
 import { PokemonGridSkeleton } from '@/components/skeletons/PokemonCardGridSkeleton';
 import EmptyState from '../common/EmptyState';
 import { usePagination } from '@/hooks/usePagination';
-import Pagination from '../common/Pagination';
+import { PaginationWithLinks } from '../common/PaginationWithLink';
 
 export default function FavoritePokemonsList() {
    // favorites store now contains an array of pokemon ids (string[])
@@ -42,7 +42,7 @@ export default function FavoritePokemonsList() {
                      Showing all {pokemons.length} results
                   </div>
                </div>
-               <Pagination currentPage={page} itemsPerPage={limit} totalItems={pokemons.length} />
+               <PaginationWithLinks page={page} pageSize={limit} totalCount={pokemons.length} />
             </>
          )}
       </>

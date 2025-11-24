@@ -8,7 +8,7 @@ import { PokemonGridSkeleton } from '../skeletons/PokemonCardGridSkeleton';
 import EmptyState from '../common/EmptyState';
 import { usePokemonsByIds } from '@/hooks/usePokemonsByIds';
 import { usePagination } from '@/hooks/usePagination';
-import Pagination from '../common/Pagination';
+import { PaginationWithLinks } from '../common/PaginationWithLink';
 
 const SearchResultPokemons = ({ search }: { search: string }) => {
    const { limit, offset, page } = usePagination();
@@ -58,7 +58,7 @@ const SearchResultPokemons = ({ search }: { search: string }) => {
                      Showing all {pokemons.length} results
                   </div>
                </div>
-               <Pagination currentPage={page} itemsPerPage={limit} totalItems={pokemons.length} />
+               <PaginationWithLinks page={page} pageSize={limit} totalCount={pokemons.length} />
             </>
          )}
       </div>

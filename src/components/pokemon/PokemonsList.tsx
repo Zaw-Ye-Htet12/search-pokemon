@@ -6,7 +6,7 @@ import PokemonCard from './PokemonCard';
 import { Search } from 'lucide-react';
 import EmptyState from '../common/EmptyState';
 import { usePagination } from '@/hooks/usePagination';
-import Pagination from '../common/Pagination';
+import { PaginationWithLinks } from '../common/PaginationWithLink';
 
 interface PokemonsListProps {
    className?: string;
@@ -47,7 +47,7 @@ export default function PokemonsList({ className }: PokemonsListProps) {
                Showing all {pokemons.length} results
             </div>
          </div>
-         <Pagination totalItems={totalItems} itemsPerPage={limit} currentPage={page} />
+         <PaginationWithLinks totalCount={totalItems} page={page} pageSize={limit}  />
       </div>
    );
 }
